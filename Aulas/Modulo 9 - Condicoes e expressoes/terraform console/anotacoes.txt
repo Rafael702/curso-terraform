@@ -1,0 +1,30 @@
+https://developer.hashicorp.com/terraform/cli/commands/console
+
+comando: terraform console
+Faz um lock (bloqueia) no state do terraform. Lê o state do codigo - serve para realizar testes.
+
+Util pra entender a utilidade de uma função ou expressão
+
+exit - pra sair da console
+
+É preciso iniciar o repositório antes de usar o terraform console. Para pegar o valor dos recursos ou dos outputs
+é necessário aplicar o código.
+
+>local.common_tags
+{
+  "location" = "Brazil South"
+  "managed-by" = "terraform"
+  "owner" = "rafasantos"
+}
+
+> local.common_tags.owner
+"rafasantos"
+
+podemos usar o for:
+> [for key, value in azurerm_resource_group.resource_group.tags : value]
+
+> {for key, value in local.common_tags : value => key}
+
+> {for key,value in local.common_tags : value => key if value != "terraform"}
+
+> upper(local.common_tags.owner)

@@ -1,0 +1,16 @@
+Estrutura da VPC
+- VPC
+- Subnet
+- Internet Gateway
+- Route Table
+- Route Table Association
+- Security Group
+
+Esses recursos não geram custos na AWS.
+
+O nome da bucket deve ser o mesmo da aula sobre remote state
+
+Outputs:
+
+security_group_id = "sg-0252e52e6f6377e42"
+subnet_id = "subnet-02e73128f51a12ec6"

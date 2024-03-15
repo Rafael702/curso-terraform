@@ -1,0 +1,32 @@
+terraform show file-plan.out  - apresenta os registros do arquivo plan
+
+terraform show - apresenta o state do terraform
+
+terraform state - Subcommands:
+    list                List resources in the state
+    mv                  Move an item in the state
+    pull                Pull current state and output to stdout
+    push                Update remote state from a local state file
+    replace-provider    Replace provider in the state
+    rm                  Remove instances from the state
+    show                Show a resource in the state
+
+Caso alterassemos o nome da bucket de bucket_1 para bucket_um, o plan entenderia que uma bucket deve ser 
+destruida e uma nova construida.
+Mas e se quisermos que a bucket apenas seja renomeada?
+Neste caso podemos usar o comando terraform mv que vai permitir que essa renomeação seja feita.
+
+terraform state mv recurso.nome_antigo_bucket recurso.nome_novo_bucket
+
+terraform state mv aws_s3_bucket.bucket_1 aws_s3_bucket.bucket_um
+
+e se listarmos os recursos deste state, teremos:
+terraform state list:
+aws_s3_bucket.bucket_2
+aws_s3_bucket.bucket_3
+aws_s3_bucket.bucket_um
+
+- terraform state pull - serve para baixar o state que está armazenado na base remota.
+terraform state pull > state.tfstate
+
+Este comando pode ser usado como backup.

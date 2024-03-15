@@ -1,0 +1,3 @@
+se determinado recurso já foi passado no terraform, não podemos repetir o mesmo recurso com o mesmo nome.
+
+S3 no terraform: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket

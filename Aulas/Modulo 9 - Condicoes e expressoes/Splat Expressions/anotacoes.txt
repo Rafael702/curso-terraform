@@ -1,0 +1,6 @@
+splats expression só podem ser usados em lista, sets e tuples
+
+https://developer.hashicorp.com/terraform/language/expressions/splat    
+
+formato antigo: exemplo.*.do.exemplo
+Novo formato: exemplo[*].do.exemplo

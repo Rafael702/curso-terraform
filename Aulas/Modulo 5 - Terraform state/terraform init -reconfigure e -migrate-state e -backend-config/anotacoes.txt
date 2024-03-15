@@ -1,0 +1,43 @@
+Alterar algo no bloco do backend requer uma reinicialização do diretório.
+
+terraform init -reconfigure
+
+terraform init -reconfigure - cria um repositório vazio, sem state
+
+Caso seja feita uma mudança no backend, como a key em que será armazenada o state, 
+mas não queremos perder o state antigo podemos utilizar o comando:
+terraform init -migrate-state
+
+Caso a gente não queira que no comando terraform init -migrate-state seja solicitado a permissão para migração do
+stete, podemos utilizar o comando:
+terraform init -force-copy - Este comando faz a migração, mas não pede a confirmação. 
+
+terraform init -backend-config - é utilizado mais para automação, terraform pipelines.
+Mas com ele podemos passar um backend dinâmico. Se quisermos salvar um state de desenvolvimento e um local, 
+de teste e outro local, de homologação e outro local ou de produção e outro local; Isto é, 
+queremos o mesmo backend mas em ambientes diferentes. Só que se não tomarmos cuidado, podemos ocasionar uma 
+bagunça assim.
+
+Contudo, o terraform não aceita variaveis dentro do bloco do terraform. Ele não lê. Então como podemos ter um
+backend dinâmico
+
+Vamos criar um arquivo chamado backendo com extensão hcl (linguagem do terraform) e ele terá o seguinte conteudo:
+bucket = "john-bucket-remote-state"
+key    = "commands-dev/terraform.tfstate"
+region = "us-east-1"
+
+Criamos os arquivos:
+backend-dev.hcl
+backend-homol.hcl
+backend-prod.hcl
+
+No bloco do terraform deixaremos o backend vazio.
+E no terminal rodaremos o comando:
+terraform init -backend-config=backend-dev.hcl
+
+Obs: Em uma pipeline não se costuma ter o diretório: .terraform, .terraform.lock.hcl e arquivos como plan.out
+
+Caso seja necessário rodar o terraform com o state zerado, podemos utilizar o comando:
+terraform init -backend-config=backend-dev.hcl -reconfigure
+
+ 

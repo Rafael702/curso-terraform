@@ -1,0 +1,6 @@
+https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
+
+each.key - pega um item especifico que está no for_each do bloco
+
+Com o each.value podemos obter os valores de uma key do map.
+Se iterarmos um recurso podemos obter os valores dos parametros do recurso passando o nome do parametro.

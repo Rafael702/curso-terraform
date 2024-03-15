@@ -1,0 +1,6 @@
+
+Só dará certo se tiver uma infra construida.
+comandos:
+terraform output -> Apresenta todos os outputs disponibilizados
+
+terraform output -raw nomeDoOutput ->Apresenta o output especifico.

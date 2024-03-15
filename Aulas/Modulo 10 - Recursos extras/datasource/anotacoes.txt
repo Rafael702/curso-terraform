@@ -1,0 +1,13 @@
+Datasource - é uma funcionalidade no terraform que permite trazer alguma informação que foi gerada
+fora do código do terraform para que possamos trabalhar no terraform.
+O terraform remote state é um Datasource pois realizamos buscas de informações em outros states.
+A maioria dos blocos de recursos possui o seu Datasource
+
+https://developer.hashicorp.com/terraform/language/data-sources
+
+SAS Token - No container da Azure ele serve para gerir arquivos de forma segura. Share Access Signature.
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/storage_account_blob_container_sas
+
+comando da azure-cli
+az storage blob upload -f image.jpg --blob-url 
+'{url_do_container}/{nome_do_Arquivo_que_sera_salvo_dentro_do_container}token_sas'

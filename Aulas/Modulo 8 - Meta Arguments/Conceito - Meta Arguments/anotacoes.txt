@@ -1,0 +1,20 @@
+Meta arguments - Parametros que pode ser adicionado em qualquer bloco de resource ou module.
+Ele aponta para o terraform como aquele resource deve ser controlado pelo terraform
+
+Tipos de Meta Arguments -
+Resource:
+depends_on
+count
+for_each
+provider
+lifecycle
+
+Module:
+depends_on
+count
+for_each
+provider
+
+https://developer.hashicorp.com/terraform/language/resources
+https://developer.hashicorp.com/terraform/language/modules
+

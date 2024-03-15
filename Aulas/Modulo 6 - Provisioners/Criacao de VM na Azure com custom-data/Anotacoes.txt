@@ -1,0 +1,3 @@
+o custom_data da azure precisa receber o script encriptado. Para isso faremos uso de uma função.
+https://developer.hashicorp.com/terraform/language/functions/base64encode
+

@@ -1,0 +1,2 @@
+terraform get - https://developer.hashicorp.com/terraform/cli/commands/get
+Este comando realiza o download do modulo sem usar o init. Isto serve para analise do modulo e o que ele faz.

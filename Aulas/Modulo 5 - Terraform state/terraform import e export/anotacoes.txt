@@ -1,0 +1,11 @@
+terraform import - com ele podemos importar um recurso que foi retirado do terraform
+
+Com o terraform import vamos referenciar um bloco já existente no código.
+Comando:
+terraform import aws_s3_bucket.bucket_um bucket_1
+
+Estamos dizendo: Eu tenho uma bucket no meu provider chamada: bucket_1, mas quero que ela seja representada 
+pelo bloco aws_s3_bucket.bucket_um
+
+terraform refresh - o plan e o apply já faz isso. Esse comando faz o refresh do state. O state e atualizado 
+conforme ao que está na aws.

@@ -1,0 +1,14 @@
+opçoes com terraform plan e apply
+-target e -replace
+
+-target - serve para criar um plano ou aplicar apenas um determinado bloco do terraform.
+-replace - serve para sinalizar que um determinado bloco deve ser destruido e reconstruido.
+
+https://developer.hashicorp.com/terraform/cli/commands/plan
+
+Nao pode ser usado comando destroy + replace
+
+terraform taint - servia para reconstrui um recurso. No lugar dele é usado o replace. O taint está depreciado.
+
+terraform plan -target aws_key_pair.key -out plan.out
+terraform plan -replace aws_key_pair.key -out plan.out

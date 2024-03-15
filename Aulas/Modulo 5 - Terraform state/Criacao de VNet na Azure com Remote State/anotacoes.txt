@@ -1,0 +1,6 @@
+Estrutura da Vnet
+- Resource Group
+- Vnet
+- Subnet 
+- Network Security Group
+- Subnet Network Security Group Association

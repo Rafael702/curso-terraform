@@ -1,0 +1,21 @@
+A forma recomendada de trabalhar com o state do terraform é de forma remota
+
+Remote state - Várias pessoas de vários locais podem acessar o state.
+
+Salvar o stage numa bucket da aws ou no storage account da azure
+
+Para ter um storage container na Azure é necessário ter uma storage account e um resource group.
+
+Muito util para trabalhar com pipelines
+
+https://developer.hashicorp.com/terraform/language/state/remote
+
+
+Por padrão o state é salvo local.
+
+Comandos utilizados na aula:
+terraform fmt
+terraform validate
+terraform init
+terraform plan -out plan.out
+terraform apply plan.out

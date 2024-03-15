@@ -1,0 +1,12 @@
+os provisioners devem ser usados em ultimo caso
+mas se quiseros subir algo para as máquinas virtuais deveremos usar um script. Contudo, não usaremos um provisioner.
+
+Na aws dentro do bloco aws_instance temos o parametro user_data.
+Esse parametro serve para receber o script que será rodado na máquina na hora em que ela sobe. 
+
+Na azure podemos usar o custom_data.
+
+acessando a maquina virtual podemos ver se o docker foi instalado, caso não tenha sido instalado, podemos acompanhar o script que está rodando indo na pasta /var/logs/
+Podemos rodar o comando:
+tail -F cloud-init-output.log
+Assim acompanharemos o script.

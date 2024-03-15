@@ -1,0 +1,24 @@
+Na Azure DevOps existe muitas formas de configurar a pipeline.
+Estrutura de pipeline na Azure:
+° Stages
+   ° Jobs
+      ° Steps
+
+Faremos tres stages:
+Terraform validate & plan
+Terraform Apply
+Terraform Destroy
+
+https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines
+https://dev.azure.com/danielcgil/pipeline-azure-devops-v2
+
+No arquivo: azure-pipelines.yml, colocaremos o parametro name que serve para
+definir a versão da pipeline.
+o parametro pool serve para definir o tipo da maquina que vai correr o codigo.
+
+ubuntu-latest - é da azure que possui diversos tools, dentre eles o Terraform.
+No gitlab para esperar uma aprovação manual, usavamos a when: manual. 
+Mas na Azure não tem. Para isso precisamos criar uma job especifica para isso.
+Para isso usaremos uma task definida na Azure Dev Ops. Porém essa task precisa correr 
+em uma pool diferente. Na ubuntu-latest não podemos usar essa pool para o trigger manual.
+Usaremos a pool - server. É uma pool especifica para esse tipo de task.

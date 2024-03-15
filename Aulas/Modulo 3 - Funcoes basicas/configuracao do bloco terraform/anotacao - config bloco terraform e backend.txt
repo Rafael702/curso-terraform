@@ -1,0 +1,8 @@
+terraform é uma ferramenta agnóstica. Podemos usar quantos providers quisermos.
+
+configuração backend - tem diversos tipos.
+
+https://developer.hashicorp.com/terraform/language/settings
+
+Um backend define onde o Terraform armazena seus arquivos de dados de estado .
+

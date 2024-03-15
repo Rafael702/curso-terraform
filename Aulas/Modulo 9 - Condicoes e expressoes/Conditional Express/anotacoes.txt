@@ -1,0 +1,3 @@
+https://developer.hashicorp.com/terraform/language/expressions/conditionals
+https://developer.hashicorp.com/terraform/language/expressions/custom-conditions#condition-expressions
+https://developer.hashicorp.com/terraform/language/expressions/operators

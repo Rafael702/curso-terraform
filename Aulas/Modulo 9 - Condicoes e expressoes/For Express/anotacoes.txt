@@ -1,0 +1,11 @@
+For expression - Iterar listas, conjuntos, objetos
+Serve para realizar transformações.
+
+https://developer.hashicorp.com/terraform/language/expressions/for  
+
+tupla = []
+
+terraform output - ver valores
+terraform output nome_do_output - ve valores de outputs sensiveis
+
+for expression são úteis em casos de complexidades.

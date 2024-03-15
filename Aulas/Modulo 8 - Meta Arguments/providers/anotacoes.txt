@@ -1,0 +1,17 @@
+https://developer.hashicorp.com/terraform/language/meta-arguments/resource-provider
+
+https://developer.hashicorp.com/terraform/language/meta-arguments/module-providers
+
+Nos blocos de resource temos provider e no bloco de modulo temos providers, mas a funcionalidade é a mesma.
+
+Quando queremos realizar o deploy para multiplas contas ou regions, podemos utilizar o provider.
+
+Quando mencionamos o primeiro provider, este provider se torna default. 
+Para que o terraform diferencie os providers, é necessário incluir o campo alias.
+
+Se quisermos incluir um recurso para o provider default, não precisamos adicionar nada.
+Mas caso quisermos adicionar recursos para outro provider do mesmo tipo, então devemos usar o meta arguments 
+e apontar o alias.
+
+Quando utilizamos providers diferentes em um modulo, precisamos adicionar o campo:
+configuration_aliases = []

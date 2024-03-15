@@ -1,0 +1,17 @@
+Estrutura da pipeline no github:
+° Workflows
+      ° Jobs
+           ° Steps
+
+3 Arquivos de Workflow:
+Terraform Validate & Plan
+Terraform Apply
+Terraform destroy
+
+No Github as variaveis ficam todas como upper case visualmente. Mas no .yml as variaveis que estão minusculas, devem ficar minusculas.
+
+Em runs-on definimos a maquina que irá correr a nossa action. ubuntu-latest (igual ao da Azure). Também possui terraform.
+
+No Github não possui uma feature simples para enviar arquivos para outros workflows.
+
+Para rodar um workflow manualmente, é necessário incluir no paramentro: on o valor: workflow_dispatch

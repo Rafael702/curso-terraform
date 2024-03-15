@@ -1,0 +1,9 @@
+terraform providers - apresenta os providers indicados no "projeto"
+
+terraform init - inicia, carrega configurações de provider. Deve ser usado este comando quando alterarmos o provider ou quando o módulo for alterado.
+
+terraform fmt - formata os arquivos do terraform
+terraform fmt -check - mostra onde seria feito a formatação
+terraform fmt -diff - mostra onde foram feitas as alterações
+
+terraform validate - verifica se a configuração, sintaxe do projeto está wcorreta

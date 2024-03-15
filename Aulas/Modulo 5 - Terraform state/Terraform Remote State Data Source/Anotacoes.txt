@@ -1,0 +1,5 @@
+O terraform remote state data source - serve para acessar um remote state de outro código do terraform.
+
+Não conseguimos acessar todas as informações, apenas aos outputs.
+
+https://developer.hashicorp.com/terraform/language/state/remote-state-data

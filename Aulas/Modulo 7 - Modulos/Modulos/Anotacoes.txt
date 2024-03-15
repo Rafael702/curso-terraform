@@ -1,0 +1,7 @@
+Modulo Local   - Fica armazenado na maquina do usuario e apenas este usuario tem acesso ao modulo.
+Modulo Remoto  - Esta armazenado no terraform registry ou no repositorio.
+
+Modulos locais - Aws
+Modulos Remoto - Azure
+
+https://developer.hashicorp.com/terraform/language/modules

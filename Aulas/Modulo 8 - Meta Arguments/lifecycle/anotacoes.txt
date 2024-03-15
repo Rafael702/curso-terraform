@@ -1,0 +1,16 @@
+Lifecycle só pode ser usado no bloco de recursos.
+
+Definição do ciclo de vida do recurso. 
+
+create_before_destroy - se quisermos alterar o nome de uma bucket, o terraform vai destruir a bucket 
+e depois subir outra bucket com o novo nome. Este argumento permite que a aws suba a nova bucket com versão
+diferente e depois ela destroi a bucket que teve o nome alterado.   
+
+prevent_destroy - previne que um recurso seja destroido por engano no terraform.
+ignore_changes - se determinado parametro foi alterado na console do provider, ao realizarmos o apply no terraform, 
+a alteração será desfeita. Mas com este argumento podemos ignorar as alterações feitas na console e manter elas.
+
+replace_triggered_by: Caso exista o cenário em que uma maquina virtual dependa de uma bucket e esta bucket 
+for substituida, logo devemos substituir a maquina virtual. Para isso podemos usar o lifecycle replace_triggered_by
+
+https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle

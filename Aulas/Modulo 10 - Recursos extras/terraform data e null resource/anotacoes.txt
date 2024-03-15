@@ -1,0 +1,8 @@
+null_resource formato antigo. terraform_data substitui o null_resource.
+O terraform_data não serve para criar recursos, mas para receber blocos de provisioners.
+
+https://developer.hashicorp.com/terraform/language/resources/terraform-data
+https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource
+
+Diferença entre o terraform_data e null_resource:
+replace_trigger_by - Bloco de recurso que será substituido. Só aceita blocos de recurso.

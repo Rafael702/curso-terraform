@@ -1,0 +1,15 @@
+pega informação produzida pelo código do terraform para ser usado em outro 
+programa ou em outra parte do código.
+São muito úteis em módulos.
+
+output "instance_ip_addr" {
+  value = aws_instance.server.private_ip
+}
+
+output "sa_primary_access_key" {
+  description = "Primary Access Key da Storage Account criada na Azure"
+  value = azurerm_storage_account.storage_account.primary_access_key
+  sensitive = true
+}
+
+O sensitive quando está como true não expoe o output.

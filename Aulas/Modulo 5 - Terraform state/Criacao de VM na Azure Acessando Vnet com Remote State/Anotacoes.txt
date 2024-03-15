@@ -1,0 +1,25 @@
+Estrutura da VM na Azure
+Resource Group
+Public IP
+Network Interface - Será associada a máquina virtual
+Network Interface Security Group Association
+Linux Virtual Machine
+
+Comando usado para gerar chave ssh.
+ssh-keygen -m PEM -t rsa -b 4096
+
+A Azure só aceita ssh no formato RSA
+
+Error: - the provided ssh-ed25519 SSH key is not supported. Only RSA SSH keys are supported by Azure
+│
+│   with azurerm_linux_virtual_machine.vm,
+│   on vm.tf line 36, in resource "azurerm_linux_virtual_machine" "vm":
+│   36: resource "azurerm_linux_virtual_machine" "vm" {
+
+Para conectar na maquina virtual, podemos usar o comando:
+ssh -i key-ssh-rsa username@ip
+
+Ex:
+ssh -i id_rsa terraform@20.226.35.189
+
+A VM ficou com a chave publica e para acessa-la precisamos passar a chave par dela para realizamos a conexão.

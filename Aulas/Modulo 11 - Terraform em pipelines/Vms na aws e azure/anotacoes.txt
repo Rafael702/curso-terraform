@@ -1,0 +1,4 @@
+Para rodar o codigo foi necessario passar as variaveis via terminal.
+export TF_VAR_nome_da_variavel
+Exemplo:
+export TF_VAR_azure_key_pub=

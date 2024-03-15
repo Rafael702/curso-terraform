@@ -1,0 +1,49 @@
+Obs: Os provisioners não funcionam em todas as regions. 
+https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax
+
+Colocar referencias ao recurso do terraform em um texto, pode ser feito com o ${}
+Não podemos referenciar o recurso dentro dele mesmo.
+Para isso podemos usar o self.
+Ex:
+resource "aws_instance" "vm" {
+  ami                         = "ami-0c7217cdde317cfec"
+  instance_type               = "t2.micro"
+  key_name                    = aws_key_pair.key.key_name
+  subnet_id                   = data.terraform_remote_state.vpc.outputs.subnet_id #esta na pasta aws-vpc na bucket com o remote state
+  vpc_security_group_ids      = [data.terraform_remote_state.vpc.outputs.security_group_id]
+  associate_public_ip_address = true
+
+  #Errado
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.public_ip} >> public_ip.txt"
+  }
+
+  tags = {
+    Name = "vm-terraform"
+  }
+}
+
+resource "aws_instance" "vm" {
+  ami                         = "ami-0c7217cdde317cfec"
+  instance_type               = "t2.micro"
+  key_name                    = aws_key_pair.key.key_name
+  subnet_id                   = data.terraform_remote_state.vpc.outputs.subnet_id #esta na pasta aws-vpc na bucket com o remote state
+  vpc_security_group_ids      = [data.terraform_remote_state.vpc.outputs.security_group_id]
+  associate_public_ip_address = true
+
+  #Certo
+  provisioner "local-exec" {
+    command = "echo ${self.public_ip} >> public_ip.txt"
+  }
+
+  tags = {
+    Name = "vm-terraform"
+  }
+}
+
+Se usarmos um bloco connection dentro de um provisioner, ele servirá apenas para aquele provisioner especifico.
+Mas se usarmos fora do bloco do provisioner, então o bloco connection servirá para todos os provisioners 
+configurados.
+https://developer.hashicorp.com/terraform/language/resources/provisioners/connection
+
+Os provisioner são executados na ordem em que são declarados.

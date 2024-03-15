@@ -1,0 +1,39 @@
+terraform -force-unlock
+https://developer.hashicorp.com/terraform/cli/commands/force-unlock
+
+Quando estamos mexendo com a state através do plan, apply um arquivo unlock é criado.
+Só que, se pararmos a operação no meio, o state ficará travado. E o terraform não vai remover o lock do state.
+Assim acabamos ficando com o state bloqueado.
+Quando trabalhamos com o local-state, o unlock está sempre presente; quando trabalhamos com a Azure, o unlock fica
+na storage account; Na AWS temos que criar um dynamoDB para controlar o unlock na bucket.
+
+Nós podemos aplicar o código na AWS, mas podemos guardar o state na Azure.
+
+Para não ficarmos travados pelo unlock, usaremos o comando:
+terraform force-unlock d556bebe-88c3-985c-0760-d00726c09b99
+
+Esse id foi obtido quando foi simulado que deu algum problema que impossibilitou a continuação da implantação de
+um serviço no provider, algo que ocasionou a interrupção no meio do processo; assim quando tentamos rodar o 
+terraform plan, obtivemos a seguinte mensagem:
+Error: Error acquiring the state lock
+│
+│ Error message: state blob is already locked
+│ Lock Info:
+│   ID:        d556bebe-88c3-985c-0760-d00726c09b99
+│   Path:      remote-state-v2/comandos/terraform.tfstate
+│   Operation: OperationTypeApply
+│   Who:       ZW66VMN33\Rafael.Almeida@ZW66VMN33
+│   Version:   1.3.6
+│   Created:   2024-01-16 03:11:11.5506369 +0000 UTC
+│   Info:
+│
+│
+│ Terraform acquires a state lock to protect the state from being written
+│ by multiple users at the same time. Please resolve the issue above and try
+│ again. For most commands, you can disable locking with the "-lock=false"
+│ flag, but this is not recommended.
+
+Pegamos o id e executamos no comando:
+terraform force-unlock
+
+Depois disso, conseguimos ficar com o state destravado e podemos usar o terraform plan, novamente.

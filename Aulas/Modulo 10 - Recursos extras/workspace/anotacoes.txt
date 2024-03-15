@@ -1,0 +1,43 @@
+workspace é um recurso do terraform que permite trabalhar usando o mesmo código para ambientes diferentes. 
+Mas é usado state diferentes para evitar problemas entre os ambientes.
+
+https://developer.hashicorp.com/terraform/cli/workspaces
+
+Caso os ambientes tenham credenciais diferentes, o workspace não serve.
+
+https://developer.hashicorp.com/terraform/language/state/workspaces
+
+comando: terraform workspace
+https://developer.hashicorp.com/terraform/cli/commands/workspace
+
+terraform workspace --help
+Usage: terraform [global options] workspace
+
+  new, list, show, select and delete Terraform workspaces.
+
+Subcommands:
+    delete    Delete a workspace
+    list      List Workspaces
+    new       Create a new workspace
+    select    Select a workspace
+    show      Show the name of the current workspace
+
+
+terraform workspace list
+* default
+
+terraform workspace new dev
+Created and switched to workspace "dev"!
+
+terraform workspace list
+  default
+* dev
+
+terraform workspace show
+dev
+
+Na pasta .terraform é criado o arquivo environment, e na bucket da aws também é criada uma pasta chamada: env com
+os ambientes que criamos atraves do comando terraform workspace
+
+terraform workspace delete prod
+Deleted workspace "prod"!

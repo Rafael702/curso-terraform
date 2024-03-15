@@ -1,0 +1,16 @@
+Estruturas da VM
+- Key Pair
+- Aws Instance (EC2)
+
+Acessaremos a remote state armazenada no s3 - rafael-bucket-remote-state
+
+Criar chave:
+ssh-keygen -f <nome-chave>
+
+Ex:
+ssh-keygen -f aws-key
+
+Funçao file -> serve para ler arquivos
+
+Para conectar na instancia podemos usar a chave ssh criada mais o ip publico que foi disponibilizado pelo output
+ssh -i aws-key ubuntu@vm_ip(retornado pelo output)

@@ -1,0 +1,10 @@
+Provisioners devem ser usado em ultimo caso porque o terraform não consegue manter o 
+gerenciamento do state
+
+https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax
+
+Provisioner é uma coisa, provider é outra.
+
+Provisioner file - Copiar um arquivo, ou pegar um arquivo da maquina local e mandar para máquina remota.
+Provisioner local-exec - Correr comando na maquina local que esta rodando o terraform
+Provisioner remote-exec - Correr comando na maquina remota que esta rodando o terraform

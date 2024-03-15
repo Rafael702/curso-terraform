@@ -1,0 +1,21 @@
+Uma pipeline possui Step's e job's
+Um stage pode ter uma ou mais jobs
+
+No nosso caso teremos 3 stages:
+terraform Validate & Plan - 1 job
+terraform apply - 1 job
+terraform destroy - 1 job
+
+https://docs.gitlab.com/ee/ci/
+
+Repo: https://gitlab.com/Rafael702/pipeline-gitlab-ci-v2
+
+Ir em settings > variables
+
+Adicionaremos as variaveis de acesso aos providers aws e azure. Tambem adicionaremos as variaveis com a 
+chave publica de acesso as vm's.
+Variaveis:
+TF_VAR_aws_key_pub
+TF_VAR_azure_key_pub
+
+No caso dessas variaveis de chave publica não podemos marcar as flags.

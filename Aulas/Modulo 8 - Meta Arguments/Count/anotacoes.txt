@@ -1,0 +1,7 @@
+count serve para criar multiplas cópias de um bloco no terraform que devem ser iguais.
+https://developer.hashicorp.com/terraform/language/meta-arguments/count
+
+Um recurso não pode ter um count e um for_each.
+
+Obs: Não podemos ter multiplas subnets dentro do mesmo cidr
+count.index - Index do bloco criado

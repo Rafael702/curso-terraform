@@ -1,0 +1,13 @@
+terraform plan - plano de criação ou alteração.  
+terraform plan -out plan.out - cria arquivo com plano
+
+terraform show - apresenta o plano contido no arquivo plan.out que é binário
+
+terraform apply -  constroi - apresenta o plano e pergunta se queremos implementar o plano.
+terraform apply -destroy - destroi o que foi construido
+terraform apply -auto-approve - cria direto sem perguntar. Vale mais a pena quando estamos usando o terraform em uma pipeline
+
+terraform apply nome-plano - Indica o plano que queremos que seja feito.
+
+terraform destroy - deleta o que foi construido
+terraform plan -out plan.out -destroy - Cria um plano de destruição

@@ -1,0 +1,4 @@
+time sleep - é usado para dar um tempo de espera entre a criação de um recurso e outro recurso para evitar
+erros.
+
+https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep.html

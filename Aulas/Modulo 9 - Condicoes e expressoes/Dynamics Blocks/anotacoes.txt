@@ -1,0 +1,25 @@
+Dynmic Blocks
+Permite muitiploes nested blocks dentro de um bloco de recursos.
+
+https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks
+
+Ex:
+resource "aws_elastic_beanstalk_environment" "tfenvtest" {
+  name                = "tf-test-name"
+  application         = "${aws_elastic_beanstalk_application.tftest.name}"
+  solution_stack_name = "64bit Amazon Linux 2018.03 v2.11.4 running Go 1.12.6"
+
+  dynamic "setting" {
+    for_each = var.settings
+    content {
+      namespace = setting.value["namespace"]
+      name = setting.value["name"]
+      value = setting.value["value"]
+    }
+  }
+}
+
+no bloco do dynamic podemos utilizar o for_each. Fora de um dynamic, para referenciar a chave usaremos 
+o próprio nome do bloco do dynamic, no exemplo acima é o setting.
+
+A doc recomenda que seja evitado o uso excessivo do Dynamic Block pois pode deixar a infra muito complexa.
